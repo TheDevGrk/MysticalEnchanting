@@ -1,0 +1,11 @@
+name: MysticalEnchanting
+prefix: -- MYSTICAL ENCHANTING --
+version: '${version}'
+
+main: me.grkdev.mysticalEnchanting.MysticalEnchanting
+bootstrapper: me.grkdev.mysticalEnchanting.MysticalEnchantingBootstrap
+loader: me.grkdev.mysticalEnchanting.MysticalEnchantingLoader
+api-version: '26.1.2'
+load: STARTUP
+
+authors: [ GrkDev ]
