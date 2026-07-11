@@ -15,6 +15,15 @@ import static me.grkdev.mysticalEnchanting.MysticalEnchanting.plugin;
 public class CustomItems {
     private static final NamespacedKey key = new NamespacedKey(plugin, "itemKey");
 
+    public static final NamespacedKey fireKey = new NamespacedKey(plugin, "fire_modifier");
+    public static final NamespacedKey wildKey = new NamespacedKey(plugin, "wild_modifier");
+    public static final NamespacedKey earthKey = new NamespacedKey(plugin, "earth_modifier");
+    public static final NamespacedKey airKey = new NamespacedKey(plugin, "air_modifier");
+    public static final NamespacedKey waterKey = new NamespacedKey(plugin, "water_modifier");
+    public static final NamespacedKey soulKey = new NamespacedKey(plugin, "soul_modifier");
+
+
+
 
     private static ItemStack getBaseCustomItem(){
         ItemStack item = ItemStack.of(Material.MUSIC_DISC_13);
@@ -32,6 +41,7 @@ public class CustomItems {
         meta.setRarity(ItemRarity.EPIC);
 
         meta.getPersistentDataContainer().set(key, PersistentDataType.STRING, "mystical_enchanting:infernal_book");
+        meta.getPersistentDataContainer().set(fireKey, PersistentDataType.INTEGER, 10);
 
         book.setItemMeta(meta);
 
