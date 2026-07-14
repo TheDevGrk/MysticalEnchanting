@@ -1,7 +1,8 @@
 package me.grkdev.mysticalEnchanting;
 
-import me.grkdev.mysticalEnchanting.data.CustomEnchants;
+import me.grkdev.mysticalEnchanting.data.CustomEnchantments;
 import me.grkdev.mysticalEnchanting.listeners.EnchantingTableListener;
+import me.grkdev.mysticalEnchanting.listeners.EnchantmentTriggerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,11 +14,12 @@ public final class MysticalEnchanting extends JavaPlugin {
         plugin = this;
 
 
-        CustomEnchants.setCustomEnchants();
+        CustomEnchantments.setCustomEnchants();
 
         // ------------------------------------------------------------------------------------------------------------------------------------------------------
         // Register Listeners
         Bukkit.getPluginManager().registerEvents(new EnchantingTableListener(), this);
+        Bukkit.getPluginManager().registerEvents(new EnchantmentTriggerListener(), this);
 
         // ------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -38,6 +40,8 @@ public final class MysticalEnchanting extends JavaPlugin {
     very specific conditions
 
     - Add config to choose whether enchants are rerolled when you take an item out of the enchanting table and put it back in
+    - Make enchantments work for entities with those enchantments
+    - Make the trigger events work for unusual pieces; ex. armor enchantment that does something when you hit someone (right now only checks what's in your hand, not your inventory)
 
     Ideas for how to change etable itself
     - Make different tiers of tables, they are obtained differently, have different stat maxes, and can break after certain amounts of uses

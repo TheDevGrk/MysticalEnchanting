@@ -2,7 +2,6 @@ package me.grkdev.mysticalEnchanting;
 
 import io.papermc.paper.plugin.bootstrap.BootstrapContext;
 import io.papermc.paper.plugin.bootstrap.PluginBootstrap;
-import io.papermc.paper.plugin.lifecycle.event.LifecycleEvent;
 import io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import io.papermc.paper.registry.RegistryKey;
@@ -10,7 +9,7 @@ import io.papermc.paper.registry.TypedKey;
 import io.papermc.paper.registry.event.RegistryEvents;
 import io.papermc.paper.registry.keys.tags.EnchantmentTagKeys;
 import me.grkdev.mysticalEnchanting.data.CustomEnchantment;
-import me.grkdev.mysticalEnchanting.data.CustomEnchants;
+import me.grkdev.mysticalEnchanting.data.CustomEnchantments;
 import org.bukkit.enchantments.Enchantment;
 
 import java.util.HashSet;
@@ -23,7 +22,7 @@ class MysticalEnchantingBootstrap implements PluginBootstrap {
         final LifecycleEventManager<BootstrapContext> manager = context.getLifecycleManager();
 
         Set<TypedKey<Enchantment>> customEnchantsSet = new HashSet<>();
-        for (CustomEnchantment ench : CustomEnchants.getCustomEnchants()) {
+        for (CustomEnchantment ench : CustomEnchantments.getCustomEnchantments()) {
             customEnchantsSet.add(ench.getKey());
         }
 
@@ -31,7 +30,7 @@ class MysticalEnchantingBootstrap implements PluginBootstrap {
 
             manager.registerEventHandler(RegistryEvents.ENCHANTMENT.compose().newHandler(event -> {
 
-            for (CustomEnchantment ench : CustomEnchants.getCustomEnchants()){
+            for (CustomEnchantment ench : CustomEnchantments.getCustomEnchantments()){
                 event.registry().register(
                         ench.getKey(),
                         builder -> {
